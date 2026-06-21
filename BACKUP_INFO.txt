@@ -1,0 +1,14 @@
+============================================================================
+BACKUP INFORMATION
+============================================================================
+Project:     llama-gui
+Version:     0.1.28-alpha.2
+Timestamp:   2026-06-19 23:05:03
+Hostname:    mx
+Comment:     No comment
+Build ID:    mx2305
+============================================================================
+
+SYSTEM INFORMATION:
+OS: Linux mx 6.1.0-43-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.162-1 (2026-02-08) x86_64 GNU/Linux
+Date: Пт 19 июн 2026 23:05:03 MSK

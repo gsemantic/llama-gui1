@@ -1,0 +1,45 @@
+{
+  "name": "1",
+  "windows": [
+    {
+      "height": 175.0,
+      "name": "agents",
+      "visible": true,
+      "width": 375.0,
+      "x": 961.0,
+      "y": 544.0
+    },
+    {
+      "height": 86.0,
+      "name": "rag",
+      "visible": true,
+      "width": 378.0,
+      "x": 962.0,
+      "y": 452.0
+    },
+    {
+      "height": 691.0,
+      "name": "chat",
+      "visible": true,
+      "width": 961.0,
+      "x": -5.0,
+      "y": 21.0
+    },
+    {
+      "height": 176.0,
+      "name": "files",
+      "visible": true,
+      "width": 373.0,
+      "x": 961.0,
+      "y": 270.0
+    },
+    {
+      "height": 240.0,
+      "name": "conversations",
+      "visible": true,
+      "width": 374.0,
+      "x": 963.0,
+      "y": 22.0
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "current_workspace": "Developer",
+  "workspaces": {
+    "Admin": {
+      "disabled_commands": [
+        "show_metrics",
+        "show_style_editor",
+        "show_font_selector"
+      ],
+      "enabled_commands": [],
+      "menu_configs": [
+        {
+          "hidden_items": [],
+          "menu_key": "File",
+          "menu_name": "File",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Settings",
+          "menu_name": "Settings",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "View",
+          "menu_name": "View",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Performance",
+          "menu_name": "Performance",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Security",
+          "menu_name": "Security",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Logging",
+          "menu_name": "Logging",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Help",
+          "menu_name": "Help",
+          "visible": true,
+          "visible_items": []
+        }
+      ],
+      "name": "Admin",
+      "show_admin_tools": true,
+      "show_developer_tools": false,
+      "type": "Admin"
+    },
+    "Developer": {
+      "disabled_commands": [],
+      "enabled_commands": [],
+      "menu_configs": [
+        {
+          "hidden_items": [],
+          "menu_key": "File",
+          "menu_name": "File",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Settings",
+          "menu_name": "Settings",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "View",
+          "menu_name": "View",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Agents",
+          "menu_name": "Agents",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Developer",
+          "menu_name": "Developer",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Tools",
+          "menu_name": "Tools",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Debug",
+          "menu_name": "Debug",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Help",
+          "menu_name": "Help",
+          "visible": true,
+          "visible_items": []
+        }
+      ],
+      "name": "Developer",
+      "show_admin_tools": false,
+      "show_developer_tools": true,
+      "type": "Developer"
+    },
+    "User": {
+      "disabled_commands": [
+        "open_settings_model_loading",
+        "open_settings_rope",
+        "open_settings_cache",
+        "clear_cache",
+        "open_settings_control_vectors",
+        "open_settings_output",
+        "open_settings_gpu",
+        "open_settings_sampling_advanced",
+        "open_settings_batch",
+        "show_window_manager_state",
+        "export_debug_info",
+        "open_settings_sampling_basic",
+        "open_settings_advanced",
+        "open_settings_grammar",
+        "show_font_selector",
+        "show_debug_log",
+        "open_settings_performance",
+        "open_settings_server_runtime",
+        "show_style_editor",
+        "show_command_manager_state",
+        "open_settings_tensor_override",
+        "open_settings_logging",
+        "toggle_debug_mode",
+        "show_metrics",
+        "open_settings_context"
+      ],
+      "enabled_commands": [
+        "server_stop",
+        "open_settings_ui",
+        "open_file",
+        "open_settings_models",
+        "new_chat",
+        "toggle_window_files",
+        "search ",
+        "save_file_as",
+        "select_model",
+        "show_shortcuts",
+        "model_directory",
+        "open_settings_chat",
+        "show_about",
+        "open_settings_server",
+        "rag ",
+        "summarize ",
+        "server_status",
+        "code ",
+        "server_start",
+        "toggle_window_chat",
+        "toggle_window_agents",
+        "save_file",
+        "toggle_window_rag",
+        "server_restart",
+        "show_documentation"
+      ],
+      "menu_configs": [
+        {
+          "hidden_items": [],
+          "menu_key": "File",
+          "menu_name": "File",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Settings",
+          "menu_name": "Settings",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "View",
+          "menu_name": "View",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Agents",
+          "menu_name": "Agents",
+          "visible": true,
+          "visible_items": []
+        },
+        {
+          "hidden_items": [],
+          "menu_key": "Help",
+          "menu_name": "Help",
+          "visible": true,
+          "visible_items": []
+        }
+      ],
+      "name": "User",
+      "show_admin_tools": false,
+      "show_developer_tools": false,
+      "type": "User"
+    }
+  }
+}

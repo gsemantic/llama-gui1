@@ -1,0 +1,147 @@
+=== Llama GUI Debug Information ===
+Export Time: Mar 19 2026 13:03:07
+
+--- Application State ---
+Window Size: 1346x748
+Window Title: Llama GUI
+Developer Mode: Disabled
+Debug Mode: Disabled
+
+--- Window States ---
+  agents: visible=false, pos=(416, 368), size=(368, 176)
+  rag: visible=true, pos=(880, 320), size=(448, 400)
+  chat: visible=true, pos=(16, 32), size=(848, 688)
+  files: visible=false, pos=(963, 284), size=(373, 176)
+  conversations: visible=true, pos=(880, 32), size=(448, 272)
+
+--- Command Manager Statistics ---
+  Total Commands: 105
+  Total Shortcuts: 5
+  History Size: 1
+  Can Undo: Yes
+
+--- Registered Commands ---
+  agents_list
+  agents_status
+  check_updates
+  clear_cache
+  code
+  delete_workspace
+  exit_app
+  export_chat_history
+  export_conversation_json
+  export_debug_info
+  export_logs
+  export_settings
+  flush_logs
+  import_conversation
+  import_settings
+  load_workspace
+  load_workspace_as
+  model_directory
+  new_chat
+  open_auth_settings
+  open_extensions
+  open_file
+  open_logging_settings
+  open_performance_settings
+  open_plugins
+  open_recent_1
+  open_recent_2
+  open_recent_3
+  open_settings
+  open_settings_advanced
+  open_settings_batch
+  open_settings_cache
+  open_settings_chat
+  open_settings_context
+  open_settings_control_vectors
+  open_settings_gpu
+  open_settings_grammar
+  open_settings_ini_viewer
+  open_settings_logging
+  open_settings_model_loading
+  open_settings_models
+  open_settings_output
+  open_settings_performance
+  open_settings_rope
+  open_settings_sampling_advanced
+  open_settings_sampling_basic
+  open_settings_server
+  open_settings_server_runtime
+  open_settings_tensor_override
+  open_settings_ui
+  open_ssl_settings
+  rag
+  reload_ui
+  reset_workspace
+  save_file
+  save_file_as
+  save_workspace
+  save_workspace_as
+  search
+  select_model
+  server_restart
+  server_start
+  server_status
+  server_stop
+  set_theme_classic
+  set_theme_dark
+  set_theme_light
+  show_about
+  show_about_devs
+  show_audit_log
+  show_command_manager_state
+  show_debug_log
+  show_documentation
+  show_font_selector
+  show_grid_snapping_dialog
+  show_help
+  show_logger_info
+  show_metrics
+  show_shortcuts
+  show_style_editor
+  show_window_manager_state
+  snap_windows_to_grid
+  start_item_picker
+  summarize
+  toggle_console
+  toggle_debug_mode
+  toggle_flash_style_colors
+  toggle_fps_limit
+  toggle_grid_overlay
+  toggle_grid_snapping
+  toggle_group_rects
+  toggle_log_level
+  toggle_log_to_file
+  toggle_performance
+  toggle_smart_redraw
+  toggle_status_bar
+  toggle_verify_ssl
+  toggle_vsync
+  toggle_window_agents
+  toggle_window_chat
+  toggle_window_conversations
+  toggle_window_files
+  toggle_window_rag
+  validate_files
+  view_logs
+
+--- Logger Information ---
+  Log Level: Warning
+  Debug Mode: Disabled
+
+--- Model Information ---
+  Current Model: /home/Alex/projects/gguf/Q5_K_M.gguf
+  Model Loaded: Yes
+
+--- Server Information ---
+  Server Status: ready
+
+--- Dear ImGui Information ---
+  Version: 1.92.6 WIP
+  Demo Window: Closed
+  Metrics Window: Closed
+  Style Editor: Closed
+
+=== End of Debug Information ===

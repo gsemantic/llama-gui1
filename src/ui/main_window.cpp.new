@@ -1,0 +1,9 @@
+// Main Window - Split into multiple modules
+// This file includes all the split modules to maintain compatibility with build system
+
+#include "main_window_initialization.cpp"
+#include "main_window_rendering.cpp"
+#include "main_window_events.cpp"
+#include "main_window_file_dialogs.cpp"
+#include "main_window_commands.cpp"
+#include "main_window_conversation_files.cpp"

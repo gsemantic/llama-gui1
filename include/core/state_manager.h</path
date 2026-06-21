@@ -1,0 +1,151 @@
+#pragma once
+
+#include <string>
+#include <vector>
+#include <memory>
+#include <functional>
+#include <nlohmann/json.hpp>
+
+namespace llama_gui {
+namespace core {
+
+using json = nlohmann::json;
+
+// Forward declarations
+class Settings;
+class ChatMessage;
+
+/**
+ * Individual conversation structure
+ */
+struct Conversation {
+    std::string id;
+    std::string title;
+    std::vector<ChatMessage> messages;
+    long long created_at;
+    long long updated_at;
+    std::string metadata; // JSON string for additional data
+    
+    json to_json() const {
+        json j;
+        j["id"] = id;
+        j["title"] = title;
+        j["created_at"] = created_at;
+        j["updated_at"] = updated_at;
+        j["metadata"] = metadata;
+        
+        j["messages"] = json::array();
+        for (const auto& msg : messages) {
+            j["messages"].push_back(msg.to_json());
+        }
+        
+        return j;
+    }
+    
+    static Conversation from_json(const json& j) {
+        Conversation conv;
+        conv.id = j.value("id", "");
+        conv.title = j.value("title", "New Chat");
+        conv.created_at = j.value("created_at", 0);
+        conv.updated_at = j.value("updated_at", 0);
+        conv.metadata = j.value("metadata", "");
+        
+        if (j.contains("messages")) {
+            for (const auto& msg_json : j["messages"]) {
+                conv.messages.push_back(ChatMessage::from_json(msg_json));
+            }
+        }
+        
+        return conv;
+    }
+};
+
+/**
+ * State manager for handling application state
+ * Manages conversations, settings, and UI state
+ */
+class StateManager {
+public:
+    StateManager();
+    ~StateManager();
+    
+    // Initialize with settings
+    void initialize(const Settings& settings);
+    
+    // Conversation management
+    std::string create_conversation(const std::string& title = "New Chat");
+    void delete_conversation(const std::string& conversation_id);
+    void rename_conversation(const std::string& conversation_id, const std::string& new_title);
+    void duplicate_conversation(const std::string& conversation_id);
+    
+    // Active conversation
+    const Conversation* get_active_conversation() const;
+    void set_active_conversation(const std::string& conversation_id);
+    void clear_active_conversation();
+    
+    // Message operations
+    void add_message(const std::string& conversation_id, const ChatMessage& message);
+    void update_message(const std::string& conversation_id, size_t message_index, const std::string& new_content);
+    void delete_message(const std::string& conversation_id, size_t message_index);
+    
+    // Conversation list
+    std::vector<const Conversation*> get_all_conversations() const;
+    size_t get_conversation_count() const { return conversations_.size(); }
+    
+    // Conversation search
+    std::vector<const Conversation*> search_conversations(const std::string& query) const;
+    
+    // Persistence
+    bool save_state(const std::string& file_path) const;
+    bool load_state(const std::string& file_path);
+    
+    // History management
+    void cleanup_old_conversations(int max_age_days = 30);
+    void export_conversations(const std::string& file_path) const;
+    bool import_conversations(const std::string& file_path);
+    
+    // Undo/Redo support
+    void undo_last_action();
+    void redo_last_action();
+    bool can_undo() const;
+    bool can_redo() const;
+    
+    // Event system
+    using ConversationChangeCallback = std::function<void(const std::string& conversation_id, const std::string& change_type)>;
+    void set_conversation_change_callback(ConversationChangeCallback callback);
+    
+    // Utility
+    std::string generate_unique_id() const;
+    long long get_current_timestamp() const;
+
+private:
+    std::vector<std::unique_ptr<Conversation>> conversations_;
+    std::string active_conversation_id_;
+    
+    // Event callbacks
+    ConversationChangeCallback conversation_change_callback_;
+    
+    // History for undo/redo
+    struct StateSnapshot {
+        std::vector<std::unique_ptr<Conversation>> conversations;
+        std::string active_conversation_id;
+        long long timestamp;
+    };
+    
+    std::vector<StateSnapshot> undo_history_;
+    std::vector<StateSnapshot> redo_history_;
+    size_t max_history_size_ = 50;
+    
+    // Internal helper methods
+    void create_snapshot_for_undo();
+    void update_active_conversation_timestamp();
+    StateSnapshot create_snapshot() const;
+    void restore_snapshot(const StateSnapshot& snapshot);
+    
+    // State serialization helpers
+    json serialize_state() const;
+    void deserialize_state(const json& j);
+};
+
+} // namespace core
+} // namespace llama_gui
