@@ -1,0 +1,67 @@
+name: Auto-squash history
+
+on:
+  # Запуск по расписанию (каждые 6 часов) — безопаснее, чем на каждый пуш
+  schedule:
+    - cron: '0 */6 * * *'  # Каждый 6 часов (в 00:00, 06:00, 12:00, 18:00 UTC)
+  
+  # Ручной запуск через UI GitHub
+  workflow_dispatch:
+  
+  # Запуск при пуше, НО с защитой от цикла
+  push:
+    branches: [main]
+    # Игнорируем коммиты от github-actions[bot], чтобы не было цикла
+    paths-ignore:
+      - '.github/workflows/**'
+
+jobs:
+  squash:
+    runs-on: ubuntu-latest
+    
+    # Пропускаем, если коммит уже сделан ботом (защита от цикла)
+    if: github.actor != 'github-actions[bot]'
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Нужна полная история
+      
+      - name: Squash all history into single commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Считаем коммиты
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          
+          echo "Current commit count: $COMMIT_COUNT"
+          
+          # Squash только если коммитов больше 5 (чтобы не делать это слишком часто)
+          if [ "$COMMIT_COUNT" -gt 5 ]; then
+            echo "🗜️ Squashing $COMMIT_COUNT commits into one..."
+            
+            # Создаем orphan-ветку (без истории)
+            git checkout --orphan temp-squash
+            
+            # Добавляем все файлы
+            git add -A
+            
+            # Коммитим
+            git commit -m "Auto-squash: $(date '+%Y-%m-%d %H:%M:%S UTC') | Total commits squashed: $COMMIT_COUNT"
+            
+            # Удаляем старую main и переименовываем
+            git branch -D main
+            git branch -m main
+            
+            # Force push
+            git push -f origin main
+            
+            echo "✅ Squash complete"
+          else
+            echo "ℹ️ Only $COMMIT_COUNT commits, skipping squash (threshold: 5)"
+          fi
